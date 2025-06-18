@@ -24,7 +24,7 @@ const getRecipeDetails = async (id) => {
 
     const recipes = JSON.parse(data);
 
-    const recipeDetails = recipes.filter((rec) => rec.idMeal === id);
+    const recipeDetails = recipes.filter((rec) => rec.idMeal === id)[0];
 
     return recipeDetails;
   } catch (error) {

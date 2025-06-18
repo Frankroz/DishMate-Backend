@@ -24,7 +24,7 @@ const getArticleDetails = async (id) => {
 
     const articles = JSON.parse(data);
 
-    const articleDetails = articles.filter((art) => art.id === parseInt(id));
+    const articleDetails = articles.filter((art) => art.id === parseInt(id))[0];
 
     return articleDetails;
   } catch (error) {
