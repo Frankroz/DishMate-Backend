@@ -15,13 +15,15 @@ router.get("/recipes", async (req, res) => {
 router.get("/recipes/:id", async (req, res) => {
   const { id } = req.params;
 
-  const article = await getRecipeDetails(id);
+  const recipe = await getRecipeDetails(id);
 
-  if (article.id > 0) {
-    return res.sendStatus(404);
+  console.log(parseInt(recipe.idMeal) !== 0);
+
+  if (parseInt(recipe.idMeal) !== 0) {
+    return res.json(recipe);
   }
 
-  return res.json(article);
+  return res.sendStatus(404);
 });
 
 module.exports = router;

@@ -18,10 +18,10 @@ router.get("/articles/:id", async (req, res) => {
   const recipe = await getArticleDetails(id);
 
   if (recipe.id > 0) {
-    return res.sendStatus(404);
+    return res.json(recipe);
   }
 
-  return res.json(recipe);
+  return res.sendStatus(404);
 });
 
 module.exports = router;
